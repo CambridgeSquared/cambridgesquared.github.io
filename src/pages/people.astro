@@ -1,0 +1,38 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../content/site";
+
+const title = `People — ${site.name}`
+---
+
+<Base
+  title={title}
+  description={`About ${site.name}`}
+  canonicalPath="/people"
+>
+  <article class="prose">
+    <h1>People</h1>
+    <p class="lead">
+      Our group members and faculty sponsors.
+    </p>
+
+    <section class="block">
+      <h2>Group members</h2>
+      <ul>
+        <li>Jeffery Downing</li>
+        <li>Sam Fisher</li>
+        <li>Fengyuan Han</li>
+        <li>Eric Ordoñez</li>
+        <li>Muhammad Furrukh Sami</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>Faculty sponsors</h2>
+      <ul>
+        <li><a href="https://www.arct.cam.ac.uk/people/ramit-debnath">Dr. Ramit Debnath</a></li>
+        <li><a href="https://www.arct.cam.ac.uk/people/professor-ying-jin">Prof. Ying Jin</a></li>
+      </ul>
+    </section>
+  </article>
+</Base>

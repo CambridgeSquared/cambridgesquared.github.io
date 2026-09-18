@@ -1,0 +1,58 @@
+---
+import Base from "../layouts/Base.astro";
+import bostonNTL from "../assets/images/Boston_NTL.jpg";
+import { site } from "../content/site";
+import { Image } from "astro:assets";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.name,
+  url: site.url,
+  inLanguage: site.locale
+};
+---
+
+<Base
+  title={site.name}
+  description={site.description}
+  canonicalPath="/"
+  jsonLd={jsonLd}
+>
+  <article class="prose">
+    <h1>{site.tagline}</h1>
+    <p class="lead">{site.description}</p>
+
+    <section class="block">
+      <h2>Our project</h2>
+      <p>
+        Nighttime lights (NTL) are satellite observations of light emanating from the Earth's 
+        surface at night. NTL data can be a useful proxy for economic activity because they provide 
+        consistent measurements worldwide, even where traditional economic statistics are sparse, 
+        unreliable, or unavailable. However, the economic interpretation of NTL can vary across 
+        cities and urban contexts.
+      </p>
+      <Image src={bostonNTL} alt="Boston nighttime lights" />
+      <p>
+        Our project investigates whether systematic biases arising from urban contextual 
+        factors&mdash;such as land use, population, transportation, and urban form&mdash;can be 
+        identified and accounted for in the use of NTL as a proxy for economic activity. We use 
+        spatial-data and machine-learning methods to learn representations of NTL and its urban 
+        context, with a focus on whether those representations improve the measurement of economic 
+        activity across heterogenous geographic regions. 
+      </p>
+    </section>
+
+    <section class="block">
+      <h2>Who we are</h2>
+      <p>
+        We are master's students in Harvard Extension School's
+        <a href="https://extension.harvard.edu/academics/programs/data-science-artificial-intelligence-graduate-program/">
+          ALM Data Science and Artificial Intelligence</a> program.
+        The group was formed June 2026 in Cambridge, MA, and our faculty sponsors are from the 
+        University of Cambridge, UK. Our dual affiliation makes us <em>Cambridge Squared.</em>
+      </p>
+
+    </section>
+  </article>
+</Base>
