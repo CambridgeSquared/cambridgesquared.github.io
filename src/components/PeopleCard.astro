@@ -1,0 +1,52 @@
+---
+interface Props {
+  name: string;
+  href?: string | null;
+}
+const { name, href = null } = Astro.props;
+
+// Open external links in a new tab/window.
+let isExternal = false;
+if (href !== null) {
+  try {
+    const targetUrl = new URL(href, Astro.url);
+    isExternal = targetUrl.host !== Astro.url.host;
+  } catch (e) {
+    isExternal = false;
+  }
+}
+---
+
+{href ? (
+  <a href={href} target={isExternal ? "_blank" : undefined} class="people-card">
+    <span>{name}</span>
+  </a>
+) : (
+  <div class="people-card">
+    <span>{name}</span>
+  </div>
+)}
+
+<style>
+  .people-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-2);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 2px 2px var(--border);
+    transition:
+      transform 0.2s ease;
+      box-shadow 0.2s ease;
+  }
+
+  a.people-card {
+    text-decoration: none;
+  }
+
+  a.people-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px var(--border);
+    color: var(--link);
+  }
+</style>
