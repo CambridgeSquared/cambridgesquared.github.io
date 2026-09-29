@@ -26,7 +26,11 @@ const { Content } = await render(person);
     <h1>{person.data.fullName}</h1>
 
     {person.data.photo && (
-      <Image src={person.data.photo} alt={person.data.fullName} />
+      <Image
+        src={person.data.photo}
+        alt={person.data.fullName}
+        class="person-photo"
+      />
     )}
 
     <section class="block">
@@ -52,3 +56,17 @@ const { Content } = await render(person);
     <Content />
   </article>
 </Base>
+
+<style>
+  .person-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media screen and (min-width: 640px) {
+    .person-photo {
+      width: 300px;
+    }
+  }
+</style>

@@ -27,6 +27,7 @@ people.sort((a, b) => a.data.lastName.localeCompare(b.data.lastName));
           <li>
             <PeopleCard
               name={person.data.fullName}
+              photo={person.data.photo}
               href={`/people/${person.slug}`}
             />
           </li>
@@ -57,7 +58,7 @@ people.sort((a, b) => a.data.lastName.localeCompare(b.data.lastName));
   .people-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-3);
+    gap: var(--space-4);
   }
 
   ul.people-grid {
