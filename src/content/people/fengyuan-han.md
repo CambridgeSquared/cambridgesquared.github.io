@@ -1,6 +1,7 @@
 ---
 fullName: Fengyuan Han
 lastName: Han
+photo: "../../assets/images/people/fengyuan_han.jpg"
 credentials:
     - MPhil Urban Studies, Cambridge
     - BSc Urban Planning, UCL
